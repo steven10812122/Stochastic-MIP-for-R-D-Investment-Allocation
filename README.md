@@ -10,7 +10,9 @@ Instead of relying on rigid, deterministic forecasts, this model captures the in
 - **Deterministic Equivalent Transformation:** Converted a probabilistic chance constraint into a deterministic linear form using the inverse CDF of normal distribution ($\Phi^{-1}$).
 - **Policy Switch Discovery:** Conducted sensitivity analysis across different risk levels ($\epsilon$), successfully capturing the tactical shift from low-risk portfolios (Healthcare/Manufacturing) to high-return/high-risk ones (AI/Robotics).
 - **Monte Carlo Validation:** Simulated $50,000$ market scenarios to empirically validate that the solver's allocation strictly meets the required service level ($P(\text{return} \ge R_{min}) \ge 1-\epsilon$).
-- **Custom Optimization Hack:** Implemented a Bitmask-based enumeration strategy for small-scale project selection ($2^J-1$). By fixing binary decision variables ($y_j$), the non-linear portfolio variance collapses into a constant, allowing open-source LP solvers (CBC) to find global optima instantly.
+- **Custom Optimization :** "For small-scale instances (J≤15J \leq 15
+J≤15), we apply complete enumeration over all 2J−12^J - 1
+2J−1 project subsets. This approach guarantees global optimality but does not scale to large instances, where decomposition methods such as Benders Decomposition would be required."
 
 ---
 
